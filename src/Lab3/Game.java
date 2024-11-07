@@ -8,12 +8,12 @@ public class Game {
 	public static void main(String[] args) {
 		runGame();
 	}
-	
+	public static Room currentRoom = World.buildWorld();
 	public static void runGame() {
-		Room currentRoom = World.buildWorld();
 		Scanner input = new Scanner(System.in);
 		
-		String command; // player's command
+		String command;
+		// player's command
 		do {
 			System.out.println(currentRoom);
 			System.out.print("Where do you want to go? ");
@@ -26,8 +26,8 @@ public class Game {
 			case "s":
 			case "u":
 			case "d":
-				Room nextRoom = currentRoom.getExit(command.charAt(0));
-				if (nextRoom == null)
+				Room nextRoom = currentRoom.getExit(command.charAt(0));// player's command
+				if (nextRoom == null || nextRoom.getlock())
 					System.out.println("you can't go that way");
 				else
 					currentRoom = nextRoom;
@@ -66,6 +66,7 @@ public class Game {
 					inventory.add(currentRoom.getItem(words[1]));
 					System.out.println("you pick up the "+ words[1] +" ");
 				}break;
+			
 				
 			default:
 				System.out.println("I don't know what that means.");
@@ -75,8 +76,25 @@ public class Game {
 		
 		input.close();
 	}
-	
-}
+	public static void print(Object obj) {
+		System.out.println(obj.toString());
+	}
+	public static Room getcurrtRoom() {
+		return currentRoom;		
+	}
+	public static void inv(String a) {
+		for(int i = 0; i < inventory.size(); i++) {
+			if(a == inventory.get(i).getname()) {
+				System.out.println(inventory.get(i).getname());
+			}
+			else {
+				System.out.println("You don't have that item");
+			}
+		}
+		
+	}
+	}
+
 //public static void main(String[] args) {
 	
 	//Room currentRoom = World.buildWorld();

@@ -4,16 +4,28 @@ import java.util.HashMap;
 
 public class Room {
 	private String desc;
+	private String name;
 	private Room east;
 	private Room west;
 	private Room north;
 	private Room south;
 	private Room up;
 	private Room down;
+	private boolean lock;
+	
+	
+
+	public boolean getlock(){
+		return lock;
+	}
+	public void setlock(boolean a) {
+		lock = a;
+	}
 	private HashMap<String, Item> item = new HashMap<String, Item>();
 	
-	public Room(String n) {
+	public Room(String n,String a) {
 		 desc = n;
+		 name = a;
 	}
 	public Room getExit(char n) {
 		if (n == 'e') {
@@ -72,7 +84,12 @@ public class Room {
 	public void removeItem(String a) {
 		item.remove(a);
 	}
-	
+	public String getName() {
+		return name;
+	}
+	public void setName(String a) {
+		name = a;
+	}
 	
 	
 	

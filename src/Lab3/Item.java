@@ -8,6 +8,12 @@ public class Item {
 		name = a;
 		disc =b;
 	}
+	public void open() {
+		Game.print("You can't open that");
+	}
+	public void use() {
+		Game.print("You can't use that");
+	}
 	
 	
 	String getname() {
