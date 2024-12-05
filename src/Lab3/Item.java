@@ -1,6 +1,6 @@
 package Lab3;
-
-public class Item {
+import java.io.*;
+public class Item implements Serializable{
 	
 	private String name;
 	private String disc;

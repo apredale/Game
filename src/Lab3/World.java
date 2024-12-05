@@ -2,12 +2,12 @@ package Lab3;
 
 public class World {
 public static Room buildWorld() {
-	Room room1 = new Room("You are in room 1.","Room1");
-	Room room2= new Room("you are in room 2.","room2") ;
-	Room room3= new Room("you are in room 3.","room3") ;
-	Room room4= new Room("you are in room 4.","room4") ;
-	Room room5= new Room("you are in room 5.","room5") ;
-	Room room6= new Room("you are in room 6 .","room6") ;
+	Room room1 = new Room("You are in room 1.");
+	Room room2= new Room("you are in room 2.") ;
+	Room room3= new Room("you are in room 3.") ;
+	Room room4= new Room("you are in room 4.") ;
+	Room room5= new Room("you are in room 5.") ;
+	Room room6= new Room("you are in room 6 .") ;
 	
 	room1.addExit('e',room2);
 	room2.addExit('w',room3);
@@ -23,10 +23,12 @@ public static Room buildWorld() {
 	Item e = new Item("flashlight","black stick that emits light");
 	Item f = new Item("teleporter","you automaticaly travel to room5");
 	Item g = new Item("diamond","siny valuable rock");
+	NPC h = new NPC("Puppy","a puppy wags his tail");
 	room1.setItem("Pencil",c);
 	room1.setItem("Phone",b);
 	room1.setItem("desk", a);
 	room1.setItem("Map", d);
+	room2.setNPC("Puppy",h);
 	
 	Safe safe = new Safe("safe","I wonder whats inside");
 	room1.setItem("safe", safe);

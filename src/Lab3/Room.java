@@ -1,8 +1,8 @@
 package Lab3;
-
+import java.io.*;
 import java.util.HashMap;
 
-public class Room {
+public class Room implements Serializable {
 	private String desc;
 	private String name;
 	private Room east;
@@ -22,10 +22,10 @@ public class Room {
 		lock = a;
 	}
 	private HashMap<String, Item> item = new HashMap<String, Item>();
-	
-	public Room(String n,String a) {
-		 desc = n;
+	private HashMap<String, NPC> NPC = new HashMap<String, NPC>();
+	public Room(String a) {
 		 name = a;
+		 Game.rooms.put(name,this);
 	}
 	public Room getExit(char n) {
 		if (n == 'e') {
@@ -83,6 +83,15 @@ public class Room {
 	}
 	public void removeItem(String a) {
 		item.remove(a);
+	}
+	public void setNPC(String a,NPC b) {
+		NPC.put(a, b);
+	}
+	public NPC getNPC(String a ) {
+		return NPC.get(a);
+	}
+	public void removeNPC(String a) {
+		NPC.remove(a);
 	}
 	public String getName() {
 		return name;
