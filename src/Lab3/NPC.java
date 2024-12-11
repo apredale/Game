@@ -2,6 +2,8 @@ package Lab3;
 
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
 public class NPC {
 	private String name;
 	private String desc;
@@ -32,12 +34,25 @@ public class NPC {
 	}
 
 	public void getResponse(String[] options) {
-		for (int i = 0; i < options.length; i++) {
-			Game.print("Option " + (i + 1) + ": " + options[i]);
+		String s = "";
+		for(int i = 0; i < options.length; i++) {
+			s += "Option " +(i + 1)+ ":" + options[i]+ "/n";
 		}
-		Game.print("Enter an option (1-" + options.length + "):");
-		int option = Game.input.nextInt();
-		Game.input.nextLine();
-		response(option);
+		s += "Enter an option(1-"+ options.length +"):";
+		int option = Integer.parseInt(JOptionPane.showInputDialog(s));
+			response(option);
+		
+		
+		
+		
+		
+		
+		//for (int i = 0; i < options.length; i++) {
+			//Game.print("Option " + (i + 1) + ": " + options[i]);
+		//}
+		//Game.print("Enter an option (1-" + options.length + "):");
+		//int option = Game.input.nextInt();
+		//Game.input.nextLine();
+		//response(option);
 	}
 }
